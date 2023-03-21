@@ -10,3 +10,6 @@ E:\Semester_8\PRN231\PE\PRN231_CourseManagementProject\DataAccess\obj\Debug\net6
 E:\Semester_8\PRN231\PE\PRN231_CourseManagementProject\DataAccess\obj\Debug\net6.0\refint\DataAccess.dll
 E:\Semester_8\PRN231\PE\PRN231_CourseManagementProject\DataAccess\obj\Debug\net6.0\DataAccess.pdb
 E:\Semester_8\PRN231\PE\PRN231_CourseManagementProject\DataAccess\obj\Debug\net6.0\ref\DataAccess.dll
+E:\Semester_8\PRN231\PE\PRN231_CourseManagementProject\DataAccess\bin\Debug\net6.0\BussinessObject.dll
+E:\Semester_8\PRN231\PE\PRN231_CourseManagementProject\DataAccess\bin\Debug\net6.0\BussinessObject.pdb
+E:\Semester_8\PRN231\PE\PRN231_CourseManagementProject\DataAccess\obj\Debug\net6.0\DataAccess.csproj.CopyComplete
