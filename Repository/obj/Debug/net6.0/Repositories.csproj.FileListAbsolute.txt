@@ -10,3 +10,20 @@ E:\Semester_8\PRN231\PE\PRN231_CourseManagementProject\Repository\obj\Debug\net6
 E:\Semester_8\PRN231\PE\PRN231_CourseManagementProject\Repository\obj\Debug\net6.0\refint\Repositories.dll
 E:\Semester_8\PRN231\PE\PRN231_CourseManagementProject\Repository\obj\Debug\net6.0\Repositories.pdb
 E:\Semester_8\PRN231\PE\PRN231_CourseManagementProject\Repository\obj\Debug\net6.0\ref\Repositories.dll
+C:\Users\LEGION\Desktop\Semester 8\PRN231\PRN231_CourseManagement\Repository\bin\Debug\net6.0\Repositories.deps.json
+C:\Users\LEGION\Desktop\Semester 8\PRN231\PRN231_CourseManagement\Repository\bin\Debug\net6.0\Repositories.dll
+C:\Users\LEGION\Desktop\Semester 8\PRN231\PRN231_CourseManagement\Repository\bin\Debug\net6.0\Repositories.pdb
+C:\Users\LEGION\Desktop\Semester 8\PRN231\PRN231_CourseManagement\Repository\bin\Debug\net6.0\BussinessObject.dll
+C:\Users\LEGION\Desktop\Semester 8\PRN231\PRN231_CourseManagement\Repository\bin\Debug\net6.0\DataAccess.dll
+C:\Users\LEGION\Desktop\Semester 8\PRN231\PRN231_CourseManagement\Repository\bin\Debug\net6.0\BussinessObject.pdb
+C:\Users\LEGION\Desktop\Semester 8\PRN231\PRN231_CourseManagement\Repository\bin\Debug\net6.0\DataAccess.pdb
+C:\Users\LEGION\Desktop\Semester 8\PRN231\PRN231_CourseManagement\Repository\obj\Debug\net6.0\Repositories.csproj.AssemblyReference.cache
+C:\Users\LEGION\Desktop\Semester 8\PRN231\PRN231_CourseManagement\Repository\obj\Debug\net6.0\Repositories.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\LEGION\Desktop\Semester 8\PRN231\PRN231_CourseManagement\Repository\obj\Debug\net6.0\Repositories.AssemblyInfoInputs.cache
+C:\Users\LEGION\Desktop\Semester 8\PRN231\PRN231_CourseManagement\Repository\obj\Debug\net6.0\Repositories.AssemblyInfo.cs
+C:\Users\LEGION\Desktop\Semester 8\PRN231\PRN231_CourseManagement\Repository\obj\Debug\net6.0\Repositories.csproj.CoreCompileInputs.cache
+C:\Users\LEGION\Desktop\Semester 8\PRN231\PRN231_CourseManagement\Repository\obj\Debug\net6.0\Repositories.csproj.CopyComplete
+C:\Users\LEGION\Desktop\Semester 8\PRN231\PRN231_CourseManagement\Repository\obj\Debug\net6.0\Repositories.dll
+C:\Users\LEGION\Desktop\Semester 8\PRN231\PRN231_CourseManagement\Repository\obj\Debug\net6.0\refint\Repositories.dll
+C:\Users\LEGION\Desktop\Semester 8\PRN231\PRN231_CourseManagement\Repository\obj\Debug\net6.0\Repositories.pdb
+C:\Users\LEGION\Desktop\Semester 8\PRN231\PRN231_CourseManagement\Repository\obj\Debug\net6.0\ref\Repositories.dll
