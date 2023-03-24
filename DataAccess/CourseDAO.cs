@@ -1,4 +1,5 @@
-﻿using BussinessObject.Models;
+﻿using BussinessObject.Context;
+using BussinessObject.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,33 +13,85 @@ namespace DataAccess
         //todo
         public static List<Course> getCourses()
         {
-            return null;
+            var listCourses = new List<Course>();
+            try
+            {
+                using (var context = new MyDbContext())
+                {
+                    listCourses = context.Course.ToList();
+                }
+            }catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return listCourses;
         }
         //todo
         public static Course getCourseById(int id)
         {
-            return null;
+            Course course = new Course();
+            try
+            {
+                using(var context = new MyDbContext())
+                {
+                  course = context.Course.SingleOrDefault(c => c.Id == id);
+                }
+            }catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return course;
         }
 
         //todo
         public static void addCourse(Course course)
         {
-
+            try
+            {
+                using (var context = new MyDbContext())
+                {
+                    context.Course.Add(course);
+                    context.SaveChanges();
+                }
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
         //todo
         public static void updateCourse(Course course)
         {
-
+            try
+            {
+                using(var context = new MyDbContext())
+                {
+                    context.Entry<Course>(course).State = 
+                        Microsoft.EntityFrameworkCore.EntityState.Modified;
+                    context.SaveChanges();
+                        
+                }
+            }catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
         //todo
         public static void deleteCourse(int id)
         {
-
-        }
-        //todo
-        public static void addCourseMeterial()
-        {
-
+            try
+            {
+                using (var context = new MyDbContext())
+                {
+                    var course = context.Course.SingleOrDefault(c => c.Id == id);
+                    context.Course.Remove(course);
+                    context.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

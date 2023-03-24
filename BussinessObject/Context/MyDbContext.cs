@@ -24,5 +24,6 @@ namespace BussinessObject.Context
 
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<Course> Course { get; set; }
+        public virtual DbSet<Topic> Topic { get; set; }
     }
 }
