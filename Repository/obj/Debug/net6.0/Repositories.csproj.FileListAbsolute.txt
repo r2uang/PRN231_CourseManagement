@@ -27,3 +27,8 @@ C:\Users\LEGION\Desktop\Semester 8\PRN231\PRN231_CourseManagement\Repository\obj
 C:\Users\LEGION\Desktop\Semester 8\PRN231\PRN231_CourseManagement\Repository\obj\Debug\net6.0\refint\Repositories.dll
 C:\Users\LEGION\Desktop\Semester 8\PRN231\PRN231_CourseManagement\Repository\obj\Debug\net6.0\Repositories.pdb
 C:\Users\LEGION\Desktop\Semester 8\PRN231\PRN231_CourseManagement\Repository\obj\Debug\net6.0\ref\Repositories.dll
+E:\Semester_8\PRN231\PE\PRN231_CourseManagementProject\Repository\bin\Debug\net6.0\BussinessObject.dll
+E:\Semester_8\PRN231\PE\PRN231_CourseManagementProject\Repository\bin\Debug\net6.0\DataAccess.dll
+E:\Semester_8\PRN231\PE\PRN231_CourseManagementProject\Repository\bin\Debug\net6.0\BussinessObject.pdb
+E:\Semester_8\PRN231\PE\PRN231_CourseManagementProject\Repository\bin\Debug\net6.0\DataAccess.pdb
+E:\Semester_8\PRN231\PE\PRN231_CourseManagementProject\Repository\obj\Debug\net6.0\Repositories.csproj.CopyComplete

@@ -16,7 +16,6 @@ namespace BussinessObject.Models
         public string? Name { get; set; }
         [Required]
         public string? Description { get; set; }
-        public byte[] CourseMeterial { get; set; }
         [Required]
         public bool IsActive { get; set; }
         public bool IsDelete { get; set; }

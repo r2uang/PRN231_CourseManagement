@@ -14,6 +14,5 @@ namespace Repositories
         void updateCourse(Course course);
         Course getCourse(int id);
         List<Course> getCourses();
-        void addCourseMeterial();
     }
 }
