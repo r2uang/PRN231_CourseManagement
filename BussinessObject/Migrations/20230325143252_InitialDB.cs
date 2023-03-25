@@ -26,6 +26,20 @@ namespace BussinessObject.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Meterials",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FileName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FileData = table.Column<byte[]>(type: "varbinary(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Meterials", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "User",
                 columns: table => new
                 {
@@ -56,10 +70,10 @@ namespace BussinessObject.Migrations
                     teachingType = table.Column<int>(type: "int", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     StudentTask = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Meterial = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
                     IsDelete = table.Column<bool>(type: "bit", nullable: false),
-                    CourseId = table.Column<int>(type: "int", nullable: false)
+                    CourseId = table.Column<int>(type: "int", nullable: false),
+                    MeterialId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -70,12 +84,24 @@ namespace BussinessObject.Migrations
                         principalTable: "Course",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Topics_Meterials_MeterialId",
+                        column: x => x.MeterialId,
+                        principalTable: "Meterials",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Topics_CourseId",
                 table: "Topics",
                 column: "CourseId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Topics_MeterialId",
+                table: "Topics",
+                column: "MeterialId",
+                unique: true,
+                filter: "[MeterialId] IS NOT NULL");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -88,6 +114,9 @@ namespace BussinessObject.Migrations
 
             migrationBuilder.DropTable(
                 name: "Course");
+
+            migrationBuilder.DropTable(
+                name: "Meterials");
         }
     }
 }

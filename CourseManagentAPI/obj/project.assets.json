@@ -1032,7 +1032,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "BussinessObject": "1.0.0"
+          "BussinessObject": "1.0.0",
+          "Swashbuckle.AspNetCore": "6.2.3"
         },
         "compile": {
           "bin/placeholder/DataAccess.dll": {}
@@ -1046,7 +1047,8 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "BussinessObject": "1.0.0",
-          "DataAccess": "1.0.0"
+          "DataAccess": "1.0.0",
+          "Swashbuckle.AspNetCore": "6.2.3"
         },
         "compile": {
           "bin/placeholder/Repositories.dll": {}

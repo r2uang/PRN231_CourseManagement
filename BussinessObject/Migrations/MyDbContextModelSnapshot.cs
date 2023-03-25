@@ -49,7 +49,28 @@ namespace BussinessObject.Migrations
                     b.ToTable("Course");
                 });
 
-            modelBuilder.Entity("BussinessObject.Models.Topic", b =>
+            modelBuilder.Entity("BussinessObject.Models.Meterial", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<byte[]>("FileData")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("FileName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Meterials");
+                });
+
+            modelBuilder.Entity("BussinessObject.Models.Topics", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -61,13 +82,17 @@ namespace BussinessObject.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
-                    b.Property<byte[]>("Meterial")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<bool>("IsDelete")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("MeterialId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -76,14 +101,18 @@ namespace BussinessObject.Migrations
                     b.Property<string>("StudentTask")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Type")
+                    b.Property<int>("teachingType")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CourseId");
 
-                    b.ToTable("Topic");
+                    b.HasIndex("MeterialId")
+                        .IsUnique()
+                        .HasFilter("[MeterialId] IS NOT NULL");
+
+                    b.ToTable("Topics");
                 });
 
             modelBuilder.Entity("BussinessObject.Models.User", b =>
@@ -132,15 +161,32 @@ namespace BussinessObject.Migrations
                     b.ToTable("User");
                 });
 
-            modelBuilder.Entity("BussinessObject.Models.Topic", b =>
+            modelBuilder.Entity("BussinessObject.Models.Topics", b =>
                 {
-                    b.HasOne("BussinessObject.Models.Course", "Category")
-                        .WithMany()
+                    b.HasOne("BussinessObject.Models.Course", "Course")
+                        .WithMany("Topics")
                         .HasForeignKey("CourseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Category");
+                    b.HasOne("BussinessObject.Models.Meterial", "Meterial")
+                        .WithOne("Topics")
+                        .HasForeignKey("BussinessObject.Models.Topics", "MeterialId");
+
+                    b.Navigation("Course");
+
+                    b.Navigation("Meterial");
+                });
+
+            modelBuilder.Entity("BussinessObject.Models.Course", b =>
+                {
+                    b.Navigation("Topics");
+                });
+
+            modelBuilder.Entity("BussinessObject.Models.Meterial", b =>
+                {
+                    b.Navigation("Topics")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

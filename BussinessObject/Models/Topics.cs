@@ -19,7 +19,6 @@ namespace BussinessObject.Models
         [Required]
         public string? Description { get; set; }
         public string? StudentTask { get; set; }
-        public byte[]? Meterial { get; set; }
         [Required]
         public bool IsActive { get; set; }
         [Required]
@@ -27,5 +26,7 @@ namespace BussinessObject.Models
         [Required]
         public int CourseId { get; set; }
         public virtual Course Course { get; set; }
+        public int? MeterialId { get; set; }
+        public virtual Meterial? Meterial { get; set; }
     }
 }

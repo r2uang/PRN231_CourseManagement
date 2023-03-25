@@ -69,6 +69,43 @@ namespace CourseManagmentAPI.Controllers
             repository.deleteTopic(topic.Id);
             return Ok("Delete Successfully");
         }
+
+        [HttpPost("upload-meterial")]
+        public async Task<ActionResult> PostSingleFile(IFormFile fileDetails)
+        {
+            if (fileDetails == null)
+            {
+                return BadRequest();
+            }
+            try
+            {
+                await repository.addMeterial(fileDetails);
+                return Ok();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        [HttpGet("dowload-meterial")]
+        public async Task<ActionResult> DownloadFile(int id)
+        {
+            if (id < 1)
+            {
+                return BadRequest();
+            }
+
+            try
+            {
+                await repository.dowloadMeterial(id);
+                return Ok();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }
 
