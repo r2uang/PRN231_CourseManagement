@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BussinessObject.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20230325090940_InitialDB")]
+    [Migration("20230325143252_InitialDB")]
     partial class InitialDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -51,7 +51,28 @@ namespace BussinessObject.Migrations
                     b.ToTable("Course");
                 });
 
-            modelBuilder.Entity("BussinessObject.Models.Topic", b =>
+            modelBuilder.Entity("BussinessObject.Models.Meterial", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<byte[]>("FileData")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("FileName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Meterials");
+                });
+
+            modelBuilder.Entity("BussinessObject.Models.Topics", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -72,8 +93,8 @@ namespace BussinessObject.Migrations
                     b.Property<bool>("IsDelete")
                         .HasColumnType("bit");
 
-                    b.Property<byte[]>("Meterial")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<int?>("MeterialId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -88,6 +109,10 @@ namespace BussinessObject.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CourseId");
+
+                    b.HasIndex("MeterialId")
+                        .IsUnique()
+                        .HasFilter("[MeterialId] IS NOT NULL");
 
                     b.ToTable("Topics");
                 });
@@ -138,7 +163,7 @@ namespace BussinessObject.Migrations
                     b.ToTable("User");
                 });
 
-            modelBuilder.Entity("BussinessObject.Models.Topic", b =>
+            modelBuilder.Entity("BussinessObject.Models.Topics", b =>
                 {
                     b.HasOne("BussinessObject.Models.Course", "Course")
                         .WithMany("Topics")
@@ -146,12 +171,24 @@ namespace BussinessObject.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("BussinessObject.Models.Meterial", "Meterial")
+                        .WithOne("Topics")
+                        .HasForeignKey("BussinessObject.Models.Topics", "MeterialId");
+
                     b.Navigation("Course");
+
+                    b.Navigation("Meterial");
                 });
 
             modelBuilder.Entity("BussinessObject.Models.Course", b =>
                 {
                     b.Navigation("Topics");
+                });
+
+            modelBuilder.Entity("BussinessObject.Models.Meterial", b =>
+                {
+                    b.Navigation("Topics")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

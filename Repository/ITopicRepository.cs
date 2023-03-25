@@ -1,4 +1,5 @@
 ﻿using BussinessObject.Models;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,8 @@ namespace Repositories
         void updateTopic(Topics topic);
         Topics getTopic(int id);
         List<Topics> getTopicsByCourseId(int id);
-        void addMeterial();
+        Task addMeterial(IFormFile fileData);
+        Task dowloadMeterial(int id);
+
     }
 }

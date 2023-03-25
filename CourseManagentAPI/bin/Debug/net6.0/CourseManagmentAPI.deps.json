@@ -545,7 +545,8 @@
       },
       "DataAccess/1.0.0": {
         "dependencies": {
-          "BussinessObject": "1.0.0"
+          "BussinessObject": "1.0.0",
+          "Swashbuckle.AspNetCore": "6.2.3"
         },
         "runtime": {
           "DataAccess.dll": {}
@@ -554,7 +555,8 @@
       "Repositories/1.0.0": {
         "dependencies": {
           "BussinessObject": "1.0.0",
-          "DataAccess": "1.0.0"
+          "DataAccess": "1.0.0",
+          "Swashbuckle.AspNetCore": "6.2.3"
         },
         "runtime": {
           "Repositories.dll": {}
