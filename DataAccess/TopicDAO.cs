@@ -1,6 +1,7 @@
 ﻿using BussinessObject.Context;
 using BussinessObject.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualBasic.FileIO;
 using System;
@@ -99,18 +100,31 @@ namespace DataAccess
 
         public async static Task addMeterial(IFormFile fileData)
         {
+            string filename = "";
             try
             {
+                var extension = "." + fileData.FileName.Split('.')[fileData.FileName.Split('.').Length - 1];
+                var filepath = Path.Combine(Directory.GetCurrentDirectory(), "Meterials");
+
+                if (!Directory.Exists(filepath))
+                {
+                    Directory.CreateDirectory(filepath);
+                }
+
+                var exactpath = Path.Combine(Directory.GetCurrentDirectory(), "Meterials", filename);
+
+                using (var stream = new FileStream(exactpath, FileMode.Create))
+                {
+                    await fileData.CopyToAsync(stream);
+                }
+
                 var fileMeterial = new Meterial()
                 {
                     Id = 0,
                     FileName = fileData.FileName,
+                    FileRoot = filepath,
                 };
-                using (var stream = new MemoryStream())
-                {
-                    fileData.CopyTo(stream);
-                    fileMeterial.FileData = stream.ToArray();
-                }
+
                 using (var context = new MyDbContext())
                 {
                     var result = context.Meterials.Add(fileMeterial);
@@ -127,16 +141,16 @@ namespace DataAccess
         {
             try
             {
-                using (var context = new MyDbContext())
-                {
-                    var file = context.Meterials.Where(x => x.Id == id).FirstOrDefaultAsync();
-                    var content = new System.IO.MemoryStream(file.Result.FileData);
-                    var path = Path.Combine(
-                       @"C:\Users\Khuat Tien Quang\Downloads",
-                       file.Result.FileName);
-                    await CopyStream(content, path);
-                }
+                //var filepath = Path.Combine(Directory.GetCurrentDirectory(), "Upload\\Files", filename);
 
+                //var provider = new FileExtensionContentTypeProvider();
+                //if (!provider.TryGetContentType(filepath, out var contenttype))
+                //{
+                //    contenttype = "application/octet-stream";
+                //}
+
+                //var bytes = await System.IO.File.ReadAllBytesAsync(filepath);
+                //return File(bytes, contenttype, Path.GetFileName(filepath));
             }
             catch (Exception)
             {

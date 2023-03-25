@@ -201,7 +201,6 @@ E:\Semester_8\PRN231\PRN231_CourseManagement\CourseManagentAPI\obj\Debug\net6.0\
 E:\Semester_8\PRN231\PRN231_CourseManagement\CourseManagentAPI\obj\Debug\net6.0\CourseManagmentAPI.AssemblyInfoInputs.cache
 E:\Semester_8\PRN231\PRN231_CourseManagement\CourseManagentAPI\obj\Debug\net6.0\CourseManagmentAPI.AssemblyInfo.cs
 E:\Semester_8\PRN231\PRN231_CourseManagement\CourseManagentAPI\obj\Debug\net6.0\CourseManagmentAPI.csproj.CoreCompileInputs.cache
-E:\Semester_8\PRN231\PRN231_CourseManagement\CourseManagentAPI\obj\Debug\net6.0\CourseManagmentAPI.MvcApplicationPartsAssemblyInfo.cs
 E:\Semester_8\PRN231\PRN231_CourseManagement\CourseManagentAPI\obj\Debug\net6.0\CourseManagmentAPI.MvcApplicationPartsAssemblyInfo.cache
 E:\Semester_8\PRN231\PRN231_CourseManagement\CourseManagentAPI\obj\Debug\net6.0\staticwebassets\msbuild.CourseManagmentAPI.Microsoft.AspNetCore.StaticWebAssets.props
 E:\Semester_8\PRN231\PRN231_CourseManagement\CourseManagentAPI\obj\Debug\net6.0\staticwebassets\msbuild.build.CourseManagmentAPI.props
@@ -217,3 +216,4 @@ E:\Semester_8\PRN231\PRN231_CourseManagement\CourseManagentAPI\obj\Debug\net6.0\
 E:\Semester_8\PRN231\PRN231_CourseManagement\CourseManagentAPI\obj\Debug\net6.0\CourseManagmentAPI.pdb
 E:\Semester_8\PRN231\PRN231_CourseManagement\CourseManagentAPI\obj\Debug\net6.0\CourseManagmentAPI.genruntimeconfig.cache
 E:\Semester_8\PRN231\PRN231_CourseManagement\CourseManagentAPI\obj\Debug\net6.0\ref\CourseManagmentAPI.dll
+E:\Semester_8\PRN231\PRN231_CourseManagement\CourseManagentAPI\obj\Debug\net6.0\CourseManagmentAPI.MvcApplicationPartsAssemblyInfo.cs

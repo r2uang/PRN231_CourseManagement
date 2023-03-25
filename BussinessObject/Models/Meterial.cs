@@ -14,7 +14,7 @@ namespace BussinessObject.Models
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string FileName { get; set; }
-        public byte[] FileData { get; set; }
+        public string? FileRoot { get; set; }
         public virtual Topics Topics { get; set; }
     }
 }
