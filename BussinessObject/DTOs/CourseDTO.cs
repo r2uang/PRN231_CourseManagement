@@ -5,20 +5,17 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
-namespace BussinessObject.Models
+namespace BussinessObject.DTOs
 {
-    public class Course
+    public class CourseDTO
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        [Required]
         public string? Name { get; set; }
-        [Required]
         public string? Description { get; set; }
-        [Required]
         public bool IsActive { get; set; }
         public bool IsDelete { get; set; }
-        public virtual ICollection<Topic>? Topics { get; set; }
+        public List<TopicDTO> Topics { get; set; }
     }
 }

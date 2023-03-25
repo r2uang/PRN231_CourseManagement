@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Repositories
 {
-    internal class TopicRepository : ITopicRepository
+    public class TopicRepository : ITopicRepository
     {
         public void addMeterial()
         {

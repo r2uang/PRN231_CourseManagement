@@ -11,7 +11,6 @@ namespace Repositories
     public class CourseRepository : ICourseRepository
     {
         public void addCourse(Course course)=> CourseDAO.addCourse(course);
-        public void addCourseMeterial() => CourseDAO.addCourseMeterial();
         public void deleteCourse(int id) => CourseDAO.deleteCourse(id);
         public Course getCourse(int id) => CourseDAO.getCourseById(id);
         public List<Course> getCourses() => CourseDAO.getCourses();
