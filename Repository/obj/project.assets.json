@@ -2590,19 +2590,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Khuat Tien Quang\\.nuget\\packages\\": {}
+    "C:\\Users\\LEGION\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Semester_8\\PRN231\\PRN231_CourseManagement\\Repository\\Repositories.csproj",
+      "projectUniqueName": "C:\\Users\\LEGION\\Desktop\\Semester 8\\PRN231\\PRN231_CourseManagement\\Repository\\Repositories.csproj",
       "projectName": "Repositories",
-      "projectPath": "E:\\Semester_8\\PRN231\\PRN231_CourseManagement\\Repository\\Repositories.csproj",
-      "packagesPath": "C:\\Users\\Khuat Tien Quang\\.nuget\\packages\\",
-      "outputPath": "E:\\Semester_8\\PRN231\\PRN231_CourseManagement\\Repository\\obj\\",
+      "projectPath": "C:\\Users\\LEGION\\Desktop\\Semester 8\\PRN231\\PRN231_CourseManagement\\Repository\\Repositories.csproj",
+      "packagesPath": "C:\\Users\\LEGION\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\LEGION\\Desktop\\Semester 8\\PRN231\\PRN231_CourseManagement\\Repository\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Khuat Tien Quang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\LEGION\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2616,11 +2616,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "E:\\Semester_8\\PRN231\\PRN231_CourseManagement\\BussinessObject\\BussinessObject.csproj": {
-              "projectPath": "E:\\Semester_8\\PRN231\\PRN231_CourseManagement\\BussinessObject\\BussinessObject.csproj"
+            "C:\\Users\\LEGION\\Desktop\\Semester 8\\PRN231\\PRN231_CourseManagement\\BussinessObject\\BussinessObject.csproj": {
+              "projectPath": "C:\\Users\\LEGION\\Desktop\\Semester 8\\PRN231\\PRN231_CourseManagement\\BussinessObject\\BussinessObject.csproj"
             },
-            "E:\\Semester_8\\PRN231\\PRN231_CourseManagement\\DataAccess\\DataAccess.csproj": {
-              "projectPath": "E:\\Semester_8\\PRN231\\PRN231_CourseManagement\\DataAccess\\DataAccess.csproj"
+            "C:\\Users\\LEGION\\Desktop\\Semester 8\\PRN231\\PRN231_CourseManagement\\DataAccess\\DataAccess.csproj": {
+              "projectPath": "C:\\Users\\LEGION\\Desktop\\Semester 8\\PRN231\\PRN231_CourseManagement\\DataAccess\\DataAccess.csproj"
             }
           }
         }
@@ -2656,7 +2656,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
       }
     }
   }
