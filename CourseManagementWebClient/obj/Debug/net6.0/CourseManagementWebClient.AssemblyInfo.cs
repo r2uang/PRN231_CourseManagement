@@ -12,7 +12,8 @@ using System;
 using System.Reflection;
 
 [assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap5")]
-[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("aspnet-CourseManagementWebClient-d2b4b838-05b8-4330-8f84-a764b6a4c99c")]
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("aspnet-CourseManagementWebClientWebClientWebClient-d2b4b838-05b8-4330-8f84-a764b6" +
+    "a4c99c")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("CourseManagementWebClient")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
