@@ -1,13 +1,12 @@
 ﻿using AutoMapper;
 using BussinessObject.DTOs;
 using BussinessObject.Models;
-using DataAccess;
 using Microsoft.AspNetCore.Mvc;
 using Repositories;
 
 namespace CourseManagmentAPI.Controllers
 {
-    [Route("api/course")]
+    [Route("api/courses")]
     [ApiController]
     public class CourseController : Controller
     {
@@ -18,20 +17,19 @@ namespace CourseManagmentAPI.Controllers
         {
             this.mapper = mapper;
         }
-
         [HttpGet]
-        public ActionResult<IEnumerable<CourseDTO>> Index()
+        public ActionResult<IEnumerable<CourseDTO>> GetCourses()
         {
             List<CourseDTO> courses = repository.getCourses().Select(mapper.Map<Course, CourseDTO>).ToList();
-            if (courses.Count == Constants.NUMBER_ZERO)
-            {
+            if(courses.Count == 0) {
                 return NotFound("NOT FOUND ANY COURSE !!!");
             }
             return Ok(courses);
         }
 
         [HttpGet("id")]
-        public ActionResult <IEnumerable<CourseDTO>> getCourse(int id) {
+        public ActionResult<IEnumerable<CourseDTO>> GetCourse(int id)
+        {
             Course course = repository.getCourse(id);
             if(course == null)
             {
@@ -40,20 +38,18 @@ namespace CourseManagmentAPI.Controllers
             CourseDTO courseDTO = mapper.Map<CourseDTO>(course);
             return Ok(courseDTO);
         }
-
         [HttpPost]
-        public IActionResult addCourse([FromBody] CourseDTO courseDTO)
+        public IActionResult AddCourse([FromBody] CourseDTO courseDTO)
         {
             Course course = mapper.Map<Course>(courseDTO);
             repository.addCourse(course);
-            return Ok("Create Successfully");
+            return Ok("Add Successfully");
         }
-
         [HttpPut]
-        public IActionResult UpdateProduct([FromBody] CourseDTO courseDTO)
+        public IActionResult UpdateCourse([FromBody] CourseDTO courseDTO)
         {
             var course = repository.getCourse(courseDTO.Id);
-            if (course == null)
+            if (courseDTO == null)
             {
                 return NotFound("COURSE NOT FOUND !!!");
             }
@@ -62,7 +58,7 @@ namespace CourseManagmentAPI.Controllers
             return Ok("Update Successfully");
         }
         [HttpDelete("id")]
-        public IActionResult DeleteProduct(int id)
+        public IActionResult DeleteCourse(int id)
         {
             var course = repository.getCourse(id);
             if (course == null)

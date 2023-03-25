@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BussinessObject.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
@@ -6,19 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BussinessObject.Models
+namespace BussinessObject.DTOs
 {
-    public class Course
+    public class TopicDTO
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        [Required]
         public string? Name { get; set; }
-        [Required]
+        public TeachingType teachingType { get; set; }
         public string? Description { get; set; }
-        [Required]
+        public string? StudentTask { get; set; }
+        public int CourseId { get; set; }
         public bool IsActive { get; set; }
         public bool IsDelete { get; set; }
-        public virtual ICollection<Topic>? Topics { get; set; }
     }
 }
+

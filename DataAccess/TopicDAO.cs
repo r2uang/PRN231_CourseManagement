@@ -1,62 +1,39 @@
 ﻿using BussinessObject.Context;
 using BussinessObject.Models;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DataAccess
 {
-    public class CourseDAO
+    public class TopicDAO
     {
-        //todo
-        public static List<Course> getCourses()
+        public static void addTopic(Topic topic)
         {
-            var courses = new List<Course>();
             try
             {
                 using (var context = new MyDbContext())
                 {
-                    courses = context.Course.ToList();
+                    context.Topics.Add(topic);
+                    context.SaveChanges();
                 }
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
-            return courses;
-        }
-        //todo
-        public static Course getCourseById(int id)
-        {
-            Course course = new Course();
-            try
-            {
-                using (var context = new MyDbContext())
-                {
-                    course = context.Course
-                        .Include(topic => topic.Topics)
-                        .Where(o => o.Id == id).FirstOrDefault();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-            return course;
         }
 
-        //todo
-        public static void addCourse(Course course)
+        public static void deleteTopic(int id)
         {
             try
             {
                 using (var context = new MyDbContext())
                 {
-                    context.Course.Add(course);
+                    var topic = context.Topics.SingleOrDefault(c => c.Id == id);
+                    context.Topics.Remove(topic);
                     context.SaveChanges();
                 }
             }
@@ -65,32 +42,49 @@ namespace DataAccess
                 throw new Exception(ex.Message);
             }
         }
-        //todo
-        public static void updateCourse(Course course)
+
+        public static Topic getTopicById(int id)
+        {
+            Topic topic = new Topic();
+            try
+            {
+                using (var context = new MyDbContext())
+                {
+                    topic = context.Topics.SingleOrDefault(x => x.Id == id);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return topic;
+        }
+
+        public static List<Topic> getTopicsByCourseId(int id)
+        {
+            var topics = new List<Topic>();
+            try
+            {
+                using (var context = new MyDbContext())
+                {
+                    topics = context.Topics.Where(o => o.CourseId == id).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return topics;
+        }
+
+        public static void updateTopic(Topic topic)
         {
             try
             {
                 using (var context = new MyDbContext())
                 {
-                    context.Entry<Course>(course).State =
+                    context.Entry<Topic>(topic).State =
                         Microsoft.EntityFrameworkCore.EntityState.Modified;
-                    context.SaveChanges();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
-        //todo
-        public static void deleteCourse(int id)
-        {
-            try
-            {
-                using (var context = new MyDbContext())
-                {
-                    var course = context.Course.SingleOrDefault(c => c.Id == id);
-                    context.Course.Remove(course);
                     context.SaveChanges();
                 }
             }

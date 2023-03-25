@@ -1,5 +1,5 @@
+using BusinessObjects.DTOs;
 using BussinessObject.Context;
-using BussinessObject.DTOs;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,7 +11,6 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<MyDbContext>();
 builder.Services.AddAutoMapper(typeof(AutoMapperProfile).Assembly);
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
