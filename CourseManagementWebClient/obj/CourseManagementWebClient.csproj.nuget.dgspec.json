@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Semester_8\\PRN231\\PRN231_CourseManagement\\CourseManagementWebClient\\CourseManagementWebClient.csproj": {}
+    "C:\\Users\\LEGION\\Desktop\\Semester 8\\PRN231\\PRN231_CourseManagement\\CourseManagementWebClient\\CourseManagementWebClient.csproj": {}
   },
   "projects": {
-    "E:\\Semester_8\\PRN231\\PRN231_CourseManagement\\BussinessObject\\BussinessObject.csproj": {
+    "C:\\Users\\LEGION\\Desktop\\Semester 8\\PRN231\\PRN231_CourseManagement\\BussinessObject\\BussinessObject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Semester_8\\PRN231\\PRN231_CourseManagement\\BussinessObject\\BussinessObject.csproj",
+        "projectUniqueName": "C:\\Users\\LEGION\\Desktop\\Semester 8\\PRN231\\PRN231_CourseManagement\\BussinessObject\\BussinessObject.csproj",
         "projectName": "BussinessObject",
-        "projectPath": "E:\\Semester_8\\PRN231\\PRN231_CourseManagement\\BussinessObject\\BussinessObject.csproj",
-        "packagesPath": "C:\\Users\\Khuat Tien Quang\\.nuget\\packages\\",
-        "outputPath": "E:\\Semester_8\\PRN231\\PRN231_CourseManagement\\BussinessObject\\obj\\",
+        "projectPath": "C:\\Users\\LEGION\\Desktop\\Semester 8\\PRN231\\PRN231_CourseManagement\\BussinessObject\\BussinessObject.csproj",
+        "packagesPath": "C:\\Users\\LEGION\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\LEGION\\Desktop\\Semester 8\\PRN231\\PRN231_CourseManagement\\BussinessObject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Khuat Tien Quang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\LEGION\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -79,21 +79,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\Semester_8\\PRN231\\PRN231_CourseManagement\\CourseManagementWebClient\\CourseManagementWebClient.csproj": {
+    "C:\\Users\\LEGION\\Desktop\\Semester 8\\PRN231\\PRN231_CourseManagement\\CourseManagementWebClient\\CourseManagementWebClient.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Semester_8\\PRN231\\PRN231_CourseManagement\\CourseManagementWebClient\\CourseManagementWebClient.csproj",
+        "projectUniqueName": "C:\\Users\\LEGION\\Desktop\\Semester 8\\PRN231\\PRN231_CourseManagement\\CourseManagementWebClient\\CourseManagementWebClient.csproj",
         "projectName": "CourseManagementWebClient",
-        "projectPath": "E:\\Semester_8\\PRN231\\PRN231_CourseManagement\\CourseManagementWebClient\\CourseManagementWebClient.csproj",
-        "packagesPath": "C:\\Users\\Khuat Tien Quang\\.nuget\\packages\\",
-        "outputPath": "E:\\Semester_8\\PRN231\\PRN231_CourseManagement\\CourseManagementWebClient\\obj\\",
+        "projectPath": "C:\\Users\\LEGION\\Desktop\\Semester 8\\PRN231\\PRN231_CourseManagement\\CourseManagementWebClient\\CourseManagementWebClient.csproj",
+        "packagesPath": "C:\\Users\\LEGION\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\LEGION\\Desktop\\Semester 8\\PRN231\\PRN231_CourseManagement\\CourseManagementWebClient\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Khuat Tien Quang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\LEGION\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -107,8 +107,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "E:\\Semester_8\\PRN231\\PRN231_CourseManagement\\BussinessObject\\BussinessObject.csproj": {
-                "projectPath": "E:\\Semester_8\\PRN231\\PRN231_CourseManagement\\BussinessObject\\BussinessObject.csproj"
+              "C:\\Users\\LEGION\\Desktop\\Semester 8\\PRN231\\PRN231_CourseManagement\\BussinessObject\\BussinessObject.csproj": {
+                "projectPath": "C:\\Users\\LEGION\\Desktop\\Semester 8\\PRN231\\PRN231_CourseManagement\\BussinessObject\\BussinessObject.csproj"
               }
             }
           }
@@ -142,6 +142,10 @@
             "Microsoft.EntityFrameworkCore.Tools": {
               "target": "Package",
               "version": "[6.0.14, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[6.0.12, )"
             }
           },
           "imports": [
@@ -163,7 +167,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }

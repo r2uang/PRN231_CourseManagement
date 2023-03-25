@@ -1,4 +1,4 @@
-namespace CourseManagementWebClient.Models
+namespace CourseManagementWebClientWebClient.Models
 {
     public class ErrorViewModel
     {

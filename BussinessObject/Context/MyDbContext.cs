@@ -23,7 +23,6 @@ namespace BussinessObject.Context
             optionsBuilder.UseSqlServer(configuration.GetConnectionString("prn231db"));
         }
 
-        public virtual DbSet<User> User { get; set; }
         public virtual DbSet<Course> Course { get; set; }
         public virtual DbSet<Topics> Topics { get; set; }
         public virtual DbSet<Meterial> Meterials { get; set; }

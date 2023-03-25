@@ -1,8 +1,15 @@
-﻿@{
+﻿@using CourseManagementWebClientWebClient.Data;
+@model List<String>
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>A Place For You To All Manage Documents.</p>
+    @if (Model != null && Model.Contains(Role.SUPERADMIN.ToString()))
+    {
+        <a class="nav-link text-dark" asp-area="" asp-controller="UserRole" asp-action="Index">UsersManager</a>
+        <a class="nav-link text-dark" asp-area="" asp-controller="Role" asp-action="Index">RolesManager</a>
+    }
 </div>
