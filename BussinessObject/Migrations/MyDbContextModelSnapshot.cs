@@ -61,13 +61,9 @@ namespace BussinessObject.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsDelete")
                         .HasColumnType("bit");
 
                     b.Property<byte[]>("Meterial")
@@ -80,14 +76,14 @@ namespace BussinessObject.Migrations
                     b.Property<string>("StudentTask")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("teachingType")
+                    b.Property<int>("Type")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CourseId");
 
-                    b.ToTable("Topics");
+                    b.ToTable("Topic");
                 });
 
             modelBuilder.Entity("BussinessObject.Models.User", b =>
@@ -138,18 +134,13 @@ namespace BussinessObject.Migrations
 
             modelBuilder.Entity("BussinessObject.Models.Topic", b =>
                 {
-                    b.HasOne("BussinessObject.Models.Course", "Course")
-                        .WithMany("Topics")
+                    b.HasOne("BussinessObject.Models.Course", "Category")
+                        .WithMany()
                         .HasForeignKey("CourseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Course");
-                });
-
-            modelBuilder.Entity("BussinessObject.Models.Course", b =>
-                {
-                    b.Navigation("Topics");
+                    b.Navigation("Category");
                 });
 #pragma warning restore 612, 618
         }
