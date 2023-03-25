@@ -1,11 +1,13 @@
 ﻿using BussinessObject.Context;
 using BussinessObject.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualBasic.FileIO;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -100,31 +102,25 @@ namespace DataAccess
 
         public async static Task addMeterial(IFormFile fileData)
         {
-            string filename = "";
+            string path = "";
             try
             {
-                var extension = "." + fileData.FileName.Split('.')[fileData.FileName.Split('.').Length - 1];
-                var filepath = Path.Combine(Directory.GetCurrentDirectory(), "Meterials");
-
-                if (!Directory.Exists(filepath))
+                path = Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, "Meterials"));
+                if (!Directory.Exists(path))
                 {
-                    Directory.CreateDirectory(filepath);
+                    Directory.CreateDirectory(path);
                 }
-
-                var exactpath = Path.Combine(Directory.GetCurrentDirectory(), "Meterials", filename);
-
-                using (var stream = new FileStream(exactpath, FileMode.Create))
+                using (var fileStream = new FileStream(Path.Combine(path, fileData.FileName), FileMode.Create))
                 {
-                    await fileData.CopyToAsync(stream);
+                    await fileData.CopyToAsync(fileStream);
                 }
 
                 var fileMeterial = new Meterial()
                 {
                     Id = 0,
                     FileName = fileData.FileName,
-                    FileRoot = filepath,
+                    FileRoot = path,
                 };
-
                 using (var context = new MyDbContext())
                 {
                     var result = context.Meterials.Add(fileMeterial);
@@ -132,37 +128,14 @@ namespace DataAccess
                 }
             }
             catch (Exception ex)
-            { 
+            {
                 throw new Exception(ex.Message);
             }
         }
 
-        public async static Task dowloadMeterial(int id)
+        public async static Task<IActionResult> dowloadMeterial(int id)
         {
-            try
-            {
-                //var filepath = Path.Combine(Directory.GetCurrentDirectory(), "Upload\\Files", filename);
-
-                //var provider = new FileExtensionContentTypeProvider();
-                //if (!provider.TryGetContentType(filepath, out var contenttype))
-                //{
-                //    contenttype = "application/octet-stream";
-                //}
-
-                //var bytes = await System.IO.File.ReadAllBytesAsync(filepath);
-                //return File(bytes, contenttype, Path.GetFileName(filepath));
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-        public async static Task CopyStream(Stream stream, string downloadPath)
-        {
-            using (var fileStream = new FileStream(downloadPath, FileMode.Create, FileAccess.Write))
-            {
-                await stream.CopyToAsync(fileStream);
-            }
+            return null;
         }
     }
 }

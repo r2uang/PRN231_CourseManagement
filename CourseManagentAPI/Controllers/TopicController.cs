@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
+using BussinessObject.Context;
 using BussinessObject.DTOs;
 using BussinessObject.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.StaticFiles;
 using Repositories;
 
 namespace CourseManagmentAPI.Controllers
@@ -91,20 +93,21 @@ namespace CourseManagmentAPI.Controllers
         [HttpGet("dowload-meterial")]
         public async Task<ActionResult> DownloadFile(int id)
         {
-            if (id < 1)
+            Meterial meterial = new Meterial();
+            using (var context = new MyDbContext())
             {
-                return BadRequest();
+                meterial = context.Meterials.SingleOrDefault(x => x.Id == id);
+            }
+            var filepath = Path.Combine(meterial.FileRoot, meterial.FileName);
+
+            var provider = new FileExtensionContentTypeProvider();
+            if (!provider.TryGetContentType(filepath, out var contenttype))
+            {
+                contenttype = "application/octet-stream";
             }
 
-            try
-            {
-                await repository.dowloadMeterial(id);
-                return Ok();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            var bytes = await System.IO.File.ReadAllBytesAsync(filepath);
+            return File(bytes, contenttype, Path.GetFileName(filepath));
         }
     }
 }
