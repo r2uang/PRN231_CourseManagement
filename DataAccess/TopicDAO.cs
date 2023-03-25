@@ -10,7 +10,7 @@ namespace DataAccess
 {
     public class TopicDAO
     {
-        public static void addTopic(Topic topic)
+        public static void addTopic(Topics topic)
         {
             try
             {
@@ -43,9 +43,9 @@ namespace DataAccess
             }
         }
 
-        public static Topic getTopicById(int id)
+        public static Topics getTopicById(int id)
         {
-            Topic topic = new Topic();
+            Topics topic = new Topics();
             try
             {
                 using (var context = new MyDbContext())
@@ -60,9 +60,9 @@ namespace DataAccess
             return topic;
         }
 
-        public static List<Topic> getTopicsByCourseId(int id)
+        public static List<Topics> getTopicsByCourseId(int id)
         {
-            var topics = new List<Topic>();
+            var topics = new List<Topics>();
             try
             {
                 using (var context = new MyDbContext())
@@ -77,13 +77,13 @@ namespace DataAccess
             return topics;
         }
 
-        public static void updateTopic(Topic topic)
+        public static void updateTopic(Topics topic)
         {
             try
             {
                 using (var context = new MyDbContext())
                 {
-                    context.Entry<Topic>(topic).State =
+                    context.Entry<Topics>(topic).State =
                         Microsoft.EntityFrameworkCore.EntityState.Modified;
                     context.SaveChanges();
                 }

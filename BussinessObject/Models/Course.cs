@@ -19,6 +19,6 @@ namespace BussinessObject.Models
         [Required]
         public bool IsActive { get; set; }
         public bool IsDelete { get; set; }
-        public virtual ICollection<Topic>? Topics { get; set; }
+        public virtual ICollection<Topics>? Topics { get; set; }
     }
 }

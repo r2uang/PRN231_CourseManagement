@@ -15,14 +15,14 @@ namespace Repositories
             throw new NotImplementedException();
         }
 
-        public void addTopic(Topic topic) => TopicDAO.addTopic(topic);
+        public void addTopic(Topics topic) => TopicDAO.addTopic(topic);
 
         public void deleteTopic(int id) => TopicDAO.deleteTopic(id);
 
-        public Topic getTopic(int id) => TopicDAO.getTopicById(id);
+        public Topics getTopic(int id) => TopicDAO.getTopicById(id);
 
-        public List<Topic> getTopicsByCourseId(int id) => TopicDAO.getTopicsByCourseId(id);
+        public List<Topics> getTopicsByCourseId(int id) => TopicDAO.getTopicsByCourseId(id);
 
-        public void updateTopic(Topic topic) => TopicDAO.updateTopic(topic);
+        public void updateTopic(Topics topic) => TopicDAO.updateTopic(topic);
     }
 }

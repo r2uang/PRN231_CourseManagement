@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wH+eBd1d7m8quno9Npr+kpZMvQ8z6vPxL/6ROLoVl9tj33gfaUEHt1U2CgAjHXc9oPuq/72JgrEYfZfgW6QupQ==",
+  "dgSpecHash": "HjS+Gp4xrkBeBVe3aIjvJsVF8yrFYFec+TbSAArMhiinjddHrNjrIJnUhhErgAjzbVmBM8YQmkM3mcEB4NxyNg==",
   "success": true,
-  "projectFilePath": "E:\\Semester_8\\PRN231\\PE\\PRN231_CourseManagementProject\\BussinessObject\\BussinessObject.csproj",
+  "projectFilePath": "E:\\Semester_8\\PRN231\\PRN231_CourseManagement\\BussinessObject\\BussinessObject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Khuat Tien Quang\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\Khuat Tien Quang\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",

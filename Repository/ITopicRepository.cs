@@ -9,11 +9,11 @@ namespace Repositories
 {
     public interface ITopicRepository
     {
-        void addTopic(Topic topic);
+        void addTopic(Topics topic);
         void deleteTopic(int id);
-        void updateTopic(Topic topic);
-        Topic getTopic(int id);
-        List<Topic> getTopicsByCourseId(int id);
+        void updateTopic(Topics topic);
+        Topics getTopic(int id);
+        List<Topics> getTopicsByCourseId(int id);
         void addMeterial();
     }
 }

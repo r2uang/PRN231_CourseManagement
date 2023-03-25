@@ -14,8 +14,8 @@ namespace BusinessObjects.DTOs
         public AutoMapperProfile() { 
             CreateMap<Course,CourseDTO>();
             CreateMap<CourseDTO, Course>();
-            CreateMap<Topic,TopicDTO>();
-            CreateMap<TopicDTO,Topic>();
+            CreateMap<Topics,TopicDTO>();
+            CreateMap<TopicDTO,Topics>();
         }
     }
 }

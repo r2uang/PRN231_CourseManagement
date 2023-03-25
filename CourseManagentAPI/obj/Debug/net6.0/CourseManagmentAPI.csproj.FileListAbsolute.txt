@@ -144,3 +144,13 @@ E:\Semester_8\PRN231\PE\PRN231_CourseManagementProject\CourseManagentAPI\obj\Deb
 E:\Semester_8\PRN231\PE\PRN231_CourseManagementProject\CourseManagentAPI\obj\Debug\net6.0\CourseManagmentAPI.csproj.CopyComplete
 E:\Semester_8\PRN231\PE\PRN231_CourseManagementProject\CourseManagentAPI\obj\Debug\net6.0\CourseManagmentAPI.genruntimeconfig.cache
 E:\Semester_8\PRN231\PE\PRN231_CourseManagementProject\CourseManagentAPI\obj\Debug\net6.0\ref\CourseManagmentAPI.dll
+E:\Semester_8\PRN231\PRN231_CourseManagement\CourseManagentAPI\obj\Debug\net6.0\CourseManagmentAPI.csproj.AssemblyReference.cache
+E:\Semester_8\PRN231\PRN231_CourseManagement\CourseManagentAPI\obj\Debug\net6.0\CourseManagmentAPI.GeneratedMSBuildEditorConfig.editorconfig
+E:\Semester_8\PRN231\PRN231_CourseManagement\CourseManagentAPI\obj\Debug\net6.0\CourseManagmentAPI.AssemblyInfoInputs.cache
+E:\Semester_8\PRN231\PRN231_CourseManagement\CourseManagentAPI\obj\Debug\net6.0\CourseManagmentAPI.AssemblyInfo.cs
+E:\Semester_8\PRN231\PRN231_CourseManagement\CourseManagentAPI\obj\Debug\net6.0\CourseManagmentAPI.csproj.CoreCompileInputs.cache
+E:\Semester_8\PRN231\PRN231_CourseManagement\CourseManagentAPI\obj\Debug\net6.0\CourseManagmentAPI.MvcApplicationPartsAssemblyInfo.cs
+E:\Semester_8\PRN231\PRN231_CourseManagement\CourseManagentAPI\obj\Debug\net6.0\CourseManagmentAPI.MvcApplicationPartsAssemblyInfo.cache
+E:\Semester_8\PRN231\PRN231_CourseManagement\CourseManagentAPI\obj\Debug\net6.0\CourseManagmentAPI.dll
+E:\Semester_8\PRN231\PRN231_CourseManagement\CourseManagentAPI\obj\Debug\net6.0\refint\CourseManagmentAPI.dll
+E:\Semester_8\PRN231\PRN231_CourseManagement\CourseManagentAPI\obj\Debug\net6.0\CourseManagmentAPI.pdb

@@ -20,7 +20,7 @@ namespace CourseManagmentAPI.Controllers
         [HttpGet("id")]
         public ActionResult<IEnumerable<TopicDTO>> GetTopics(int id)
         {
-            List<TopicDTO> topics = repository.getTopicsByCourseId(id).Select(mapper.Map<Topic, TopicDTO>).ToList();
+            List<TopicDTO> topics = repository.getTopicsByCourseId(id).Select(mapper.Map<Topics, TopicDTO>).ToList();
             if (topics.Count == 0)
             {
                 return NotFound("NOT FOUND ANY COURSE !!!");
@@ -31,7 +31,7 @@ namespace CourseManagmentAPI.Controllers
         [HttpGet("{id}/topic")]
         public ActionResult<IEnumerable<TopicDTO>> GetTopic(int id)
         {
-            Topic topic = repository.getTopic(id);
+            Topics topic = repository.getTopic(id);
             if (topic == null)
             {
                 return NotFound("TOPIC NOT FOUND !!!");
@@ -42,7 +42,7 @@ namespace CourseManagmentAPI.Controllers
         [HttpPost]
         public IActionResult AddTopic([FromBody] TopicDTO topicDTO)
         {
-            Topic topic = mapper.Map<Topic>(topicDTO);
+            Topics topic = mapper.Map<Topics>(topicDTO);
             repository.addTopic(topic);
             return Ok("Add Successfully");
         }
@@ -54,7 +54,7 @@ namespace CourseManagmentAPI.Controllers
             {
                 return NotFound("TOPIC NOT FOUND !!!");
             }
-            topic = mapper.Map<Topic>(topicDTO);
+            topic = mapper.Map<Topics>(topicDTO);
             repository.updateTopic(topic);
             return Ok("Update Successfully");
         }

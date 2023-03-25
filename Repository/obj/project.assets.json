@@ -2381,11 +2381,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Semester_8\\PRN231\\PE\\PRN231_CourseManagementProject\\Repository\\Repositories.csproj",
+      "projectUniqueName": "E:\\Semester_8\\PRN231\\PRN231_CourseManagement\\Repository\\Repositories.csproj",
       "projectName": "Repositories",
-      "projectPath": "E:\\Semester_8\\PRN231\\PE\\PRN231_CourseManagementProject\\Repository\\Repositories.csproj",
+      "projectPath": "E:\\Semester_8\\PRN231\\PRN231_CourseManagement\\Repository\\Repositories.csproj",
       "packagesPath": "C:\\Users\\Khuat Tien Quang\\.nuget\\packages\\",
-      "outputPath": "E:\\Semester_8\\PRN231\\PE\\PRN231_CourseManagementProject\\Repository\\obj\\",
+      "outputPath": "E:\\Semester_8\\PRN231\\PRN231_CourseManagement\\Repository\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Khuat Tien Quang\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2402,11 +2402,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "E:\\Semester_8\\PRN231\\PE\\PRN231_CourseManagementProject\\BussinessObject\\BussinessObject.csproj": {
-              "projectPath": "E:\\Semester_8\\PRN231\\PE\\PRN231_CourseManagementProject\\BussinessObject\\BussinessObject.csproj"
+            "E:\\Semester_8\\PRN231\\PRN231_CourseManagement\\BussinessObject\\BussinessObject.csproj": {
+              "projectPath": "E:\\Semester_8\\PRN231\\PRN231_CourseManagement\\BussinessObject\\BussinessObject.csproj"
             },
-            "E:\\Semester_8\\PRN231\\PE\\PRN231_CourseManagementProject\\DataAccess\\DataAccess.csproj": {
-              "projectPath": "E:\\Semester_8\\PRN231\\PE\\PRN231_CourseManagementProject\\DataAccess\\DataAccess.csproj"
+            "E:\\Semester_8\\PRN231\\PRN231_CourseManagement\\DataAccess\\DataAccess.csproj": {
+              "projectPath": "E:\\Semester_8\\PRN231\\PRN231_CourseManagement\\DataAccess\\DataAccess.csproj"
             }
           }
         }
