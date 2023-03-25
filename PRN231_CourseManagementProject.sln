@@ -9,9 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\Da
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repositories", "Repository\Repositories.csproj", "{969C9DE1-3A26-460B-AD9B-12DE67B3E458}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourseManagmentAPI", "CourseManagentAPI\CourseManagmentAPI.csproj", "{720EF2A2-3DB9-4FEB-9A46-11CBFB9D1CD5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourseManagmentAPI", "CourseManagentAPI\CourseManagmentAPI.csproj", "{720EF2A2-3DB9-4FEB-9A46-11CBFB9D1CD5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourseManagementWebClient", "CourseManagementWebClient\CourseManagementWebClient.csproj", "{CD17D867-7337-4C7F-AF58-E0DE226E05D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourseManagementWebClient", "CourseManagementWebClient\CourseManagementWebClient.csproj", "{CD17D867-7337-4C7F-AF58-E0DE226E05D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

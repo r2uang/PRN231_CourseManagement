@@ -71,15 +71,15 @@ namespace CourseManagmentAPI.Controllers
         }
 
         [HttpPost("upload-meterial")]
-        public async Task<ActionResult> PostSingleFile(IFormFile fileDetails)
+        public async Task<ActionResult> PostSingleFile(IFormFile fileData)
         {
-            if (fileDetails == null)
+            if (fileData == null)
             {
                 return BadRequest();
             }
             try
             {
-                await repository.addMeterial(fileDetails);
+                await repository.addMeterial(fileData);
                 return Ok();
             }
             catch (Exception)

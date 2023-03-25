@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -26,5 +27,6 @@ namespace BussinessObject.Context
         public virtual DbSet<Course> Course { get; set; }
         public virtual DbSet<Topics> Topics { get; set; }
         public virtual DbSet<Meterial> Meterials { get; set; }
+
     }
 }
