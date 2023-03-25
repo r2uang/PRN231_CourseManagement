@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UxOeCZ2N1LRqgqC+0brcWiq96GpzFEDz5QIee9h2zrbQlglAKKImGyyqMYA5V9nHoSQbkLy82uol67dlkwLFrA==",
+  "dgSpecHash": "z1eBvldi4p4h/AmQ+JcD/0gxvFECxlNRxh8e9S5p3puiB19uQPAFg4QFN2B1eeaLFFDlHO2QbKddFWOtNILOsQ==",
   "success": true,
-  "projectFilePath": "E:\\Semester_8\\PRN231\\PE\\PRN231_CourseManagementProject\\CourseManagementWebClient\\CourseManagementWebClient.csproj",
+  "projectFilePath": "E:\\Semester_8\\PRN231\\PRN231_CourseManagement\\CourseManagementWebClient\\CourseManagementWebClient.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Khuat Tien Quang\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\Khuat Tien Quang\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",

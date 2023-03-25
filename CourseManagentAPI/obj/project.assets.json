@@ -2613,11 +2613,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Semester_8\\PRN231\\PE\\PRN231_CourseManagementProject\\CourseManagentAPI\\CourseManagmentAPI.csproj",
+      "projectUniqueName": "E:\\Semester_8\\PRN231\\PRN231_CourseManagement\\CourseManagentAPI\\CourseManagmentAPI.csproj",
       "projectName": "CourseManagmentAPI",
-      "projectPath": "E:\\Semester_8\\PRN231\\PE\\PRN231_CourseManagementProject\\CourseManagentAPI\\CourseManagmentAPI.csproj",
+      "projectPath": "E:\\Semester_8\\PRN231\\PRN231_CourseManagement\\CourseManagentAPI\\CourseManagmentAPI.csproj",
       "packagesPath": "C:\\Users\\Khuat Tien Quang\\.nuget\\packages\\",
-      "outputPath": "E:\\Semester_8\\PRN231\\PE\\PRN231_CourseManagementProject\\CourseManagentAPI\\obj\\",
+      "outputPath": "E:\\Semester_8\\PRN231\\PRN231_CourseManagement\\CourseManagentAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Khuat Tien Quang\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2634,11 +2634,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "E:\\Semester_8\\PRN231\\PE\\PRN231_CourseManagementProject\\BussinessObject\\BussinessObject.csproj": {
-              "projectPath": "E:\\Semester_8\\PRN231\\PE\\PRN231_CourseManagementProject\\BussinessObject\\BussinessObject.csproj"
+            "E:\\Semester_8\\PRN231\\PRN231_CourseManagement\\BussinessObject\\BussinessObject.csproj": {
+              "projectPath": "E:\\Semester_8\\PRN231\\PRN231_CourseManagement\\BussinessObject\\BussinessObject.csproj"
             },
-            "E:\\Semester_8\\PRN231\\PE\\PRN231_CourseManagementProject\\Repository\\Repositories.csproj": {
-              "projectPath": "E:\\Semester_8\\PRN231\\PE\\PRN231_CourseManagementProject\\Repository\\Repositories.csproj"
+            "E:\\Semester_8\\PRN231\\PRN231_CourseManagement\\Repository\\Repositories.csproj": {
+              "projectPath": "E:\\Semester_8\\PRN231\\PRN231_CourseManagement\\Repository\\Repositories.csproj"
             }
           }
         }
