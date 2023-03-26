@@ -12,7 +12,7 @@ namespace CourseManagementWebClient.Controllers
     public class TopicController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly HttpClient client = null;
+        private readonly HttpClient client;
         private string TopicApiUrl = "";
 
         public TopicController(ILogger<HomeController> logger, UserManager<AppUser> userManager)
@@ -24,13 +24,13 @@ namespace CourseManagementWebClient.Controllers
             TopicApiUrl = "https://localhost:7167/api/topics";
         }
 
-        public async Task<IActionResult> Create(int id)
+        public IActionResult Create(int id)
         {
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromForm] TopicDTO topicDTO, IFormFile formFile, int id)
+        public async Task<IActionResult> Create([FromForm] TopicDTO topicDTO, int id)
         {
             using (var httpClient = new HttpClient())
             {
@@ -96,50 +96,48 @@ namespace CourseManagementWebClient.Controllers
                 return NotFound();
             }
             await client.DeleteAsync(TopicApiUrl + "/id?id=" + id);
-            return Redirect("/Product/Index");
+            return Redirect("/Course/Index");
         }
 
         [HttpGet]
-        public async Task<IActionResult> UploadMaterial()
+        public IActionResult UploadMaterial(int id)
         {
-            return View();
+            return View(id);
         }
         [HttpPost]
         public async Task<IActionResult> UploadMaterial(IFormFile file, int id)
         {
-            HttpClient httpClient = new HttpClient();
-
             // Create a new FormData instance and add the file to it
-            var formData = new MultipartFormDataContent();
-            
+            MultipartFormDataContent formData = new MultipartFormDataContent();
+
             //Dang loi o day
-            //formData.Add(new StreamContent(), "file", file.FileName);
+            StreamContent fileContent = new StreamContent(file.OpenReadStream());
+            formData.Add(fileContent, "file", file.FileName);
 
             try
             {
                 // Send a POST request to the API endpoint with the file
-                HttpResponseMessage response = await httpClient.PostAsync(TopicApiUrl + "upload-meterial" + id, formData);
+                HttpResponseMessage response = await client.PostAsync(TopicApiUrl + "/upload-meterial/" + id, formData);
 
                 // Check if the response was successful
                 if (response.IsSuccessStatusCode)
                 {
                     // File uploaded successfully
-                    ViewBag.Message = "File uploaded successfully";
+                    ViewData["Message"] = "File uploaded successfully";
                 }
                 else
-                {
+                    {
                     // File upload failed
-                    ViewBag.Message = "File upload failed";
+                    ViewData["Message"] = "File upload failed";
                 }
             }
             catch (Exception ex)
             {
                 // Handle any exceptions that occur during the request
-                ViewBag.Message = "An error occurred: " + ex.Message;
+                ViewData["Message"] = "An error occurred: " + ex.Message;
             }
-
             // Return the view with the message
-            return View();
+            return Redirect("/Course/Index");
         }
     }
 }

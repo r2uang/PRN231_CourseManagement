@@ -9,6 +9,6 @@ namespace BussinessObject.DTOs
     public class MaterialDTO
     {
         public int id { get; set; }
-        public string Name { get; set; }
+        public string? Name { get; set; }
     }
 }

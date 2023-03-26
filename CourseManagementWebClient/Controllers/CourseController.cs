@@ -1,6 +1,7 @@
 ﻿using BussinessObject.DTOs;
 using CourseManagementWebClientWebClient.Controllers;
 using CourseManagementWebClientWebClient.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Http.Headers;
@@ -10,19 +11,18 @@ namespace CourseManagementWebClient.Controllers
 {
     public class CourseController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-        private readonly HttpClient client = null;
+        private readonly HttpClient client;
         private string CourseApiUrl = "";
 
-        public CourseController(ILogger<HomeController> logger, UserManager<AppUser> userManager)
+        public CourseController(UserManager<AppUser> userManager)
         {
-            _logger = logger;
             client = new HttpClient();
             var contentType = new MediaTypeWithQualityHeaderValue("application/json");
             client.DefaultRequestHeaders.Accept.Add(contentType);
             CourseApiUrl = "https://localhost:7167/api/courses";
         }
 
+        [Authorize(Roles = "TEACHER,STUDENT")]
         public async Task<IActionResult> Index()
         {
             HttpResponseMessage reponse = await client.GetAsync(CourseApiUrl);
@@ -31,14 +31,15 @@ namespace CourseManagementWebClient.Controllers
             {
                 PropertyNameCaseInsensitive = true
             };
-            return View(courses);
+            return View(courses.Where(c => c.IsActive).ToList());
         }
 
-        public async Task<IActionResult> Create()
+        public IActionResult Create()
         {
             return View();
         }
 
+        [Authorize(Roles = "TEACHER")]
         [HttpPost]
         public async Task<IActionResult> Create([FromForm] CourseDTO courseDTO)
         {
@@ -51,6 +52,8 @@ namespace CourseManagementWebClient.Controllers
             }
             return Redirect("/Course/Index");
         }
+
+        [Authorize(Roles = "TEACHER")]
         [HttpGet]
         public async Task<IActionResult> Edit(int? id)
         {
@@ -61,6 +64,8 @@ namespace CourseManagementWebClient.Controllers
             }
             return View(course);
         }
+
+        [Authorize(Roles = "TEACHER")]
         [HttpPost]
         public async Task<IActionResult> Edit([FromForm] CourseDTO courseDTO)
         {
@@ -69,9 +74,10 @@ namespace CourseManagementWebClient.Controllers
                 return View(courseDTO);
             }
             HttpResponseMessage response = await client.PutAsJsonAsync(CourseApiUrl, courseDTO);
-            var result = response.Content.ReadFromJsonAsync<bool>().Result;
-            return View(courseDTO);
+            return Redirect("/Course/Index");
         }
+
+        [Authorize(Roles = "TEACHER,STUDENT")]
         public async Task<IActionResult> Details(int id)
         {
             var product = await GetCourseById(id);
@@ -96,6 +102,8 @@ namespace CourseManagementWebClient.Controllers
             return null;
         }
 
+
+        [Authorize(Roles = "TEACHER")]
         public async Task<IActionResult> Delete(int? id)
         {
             var product = await GetCourseById(id);

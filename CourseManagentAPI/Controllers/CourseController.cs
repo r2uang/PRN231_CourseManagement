@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BussinessObject.DTOs;
 using BussinessObject.Models;
+using DataAccess;
 using Microsoft.AspNetCore.Mvc;
 using Repositories;
 
@@ -21,7 +22,7 @@ namespace CourseManagmentAPI.Controllers
         public ActionResult<IEnumerable<CourseDTO>> GetCourses()
         {
             List<CourseDTO> courses = repository.getCourses().Select(mapper.Map<Course, CourseDTO>).ToList();
-            if(courses.Count == 0) {
+            if (courses.Count == 0) {
                 return NotFound("NOT FOUND ANY COURSE !!!");
             }
             return Ok(courses);
@@ -31,11 +32,20 @@ namespace CourseManagmentAPI.Controllers
         public ActionResult<IEnumerable<CourseDTO>> GetCourse(int id)
         {
             Course course = repository.getCourse(id);
-            if(course == null)
+            if (course == null)
             {
                 return NotFound("COURSE NOT FOUND !!!");
             }
             CourseDTO courseDTO = mapper.Map<CourseDTO>(course);
+            if (courseDTO.Topics != null || courseDTO.Topics.Count != 0)
+            {
+                foreach(var topic in course.Topics)
+                {
+                    MaterialDTO materialDTO = mapper.Map<MaterialDTO>(topic.Meterial);
+                    var topicDto = courseDTO.Topics.First(t => t.Id == topic.Id);
+                    topicDto.MaterialDTO= materialDTO;
+                }
+            }
             return Ok(courseDTO);
         }
         [HttpPost]

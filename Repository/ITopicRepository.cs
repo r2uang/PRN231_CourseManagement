@@ -16,7 +16,7 @@ namespace Repositories
         void updateTopic(Topics topic);
         Topics getTopic(int id);
         List<Topics> getTopicsByCourseId(int id);
-        Task addMeterial(IFormFile fileData,int id);
+        Task addMeterial(IFormFile fileData,int TopicId);
         Task dowloadMeterial(int id);
 
     }

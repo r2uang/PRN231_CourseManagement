@@ -39,6 +39,11 @@ namespace CourseManagmentAPI.Controllers
                 return NotFound("TOPIC NOT FOUND !!!");
             }
             TopicDTO topicDTO = mapper.Map<TopicDTO>(topic);
+            if (topic.Meterial != null)
+            {
+                MaterialDTO materialDTO = mapper.Map<MaterialDTO>(topic.Meterial);
+                topicDTO.MaterialDTO = materialDTO;
+            }
             return Ok(topicDTO);
         }
         [HttpPost]
@@ -73,15 +78,15 @@ namespace CourseManagmentAPI.Controllers
         }
 
         [HttpPost("upload-meterial/{topicId}")]
-        public async Task<ActionResult> PostSingleFile(IFormFile fileData,int topicId)
+        public async Task<ActionResult> PostSingleFile(IFormFile file,int topicId)
         {
-            if (fileData == null)
+            if (file == null)
             {
                 return BadRequest();
             }
             try
             {
-                await repository.addMeterial(fileData, topicId);
+                await repository.addMeterial(file, topicId);
                 return Ok();
             }
             catch (Exception)

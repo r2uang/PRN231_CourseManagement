@@ -27,7 +27,7 @@ namespace Repositories
          
         public void updateTopic(Topics topic) => TopicDAO.updateTopic(topic);
 
-        public Task addMeterial(IFormFile fileData,int id) => TopicDAO.addMeterial(fileData, id);
+        public Task addMeterial(IFormFile fileData,int topicId) => TopicDAO.addMeterial(fileData, topicId);
         public Task dowloadMeterial(int id) => TopicDAO.dowloadMeterial(id);
     }
 }

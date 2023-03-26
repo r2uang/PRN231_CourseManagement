@@ -73,12 +73,18 @@
                         @Html.DisplayFor(modelItem => item.Description)
                     </td>
                     <td>
-                        
+                        @Html.DisplayFor(modelItem => item.MaterialDTO.Name)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.StudentTask)
                     </td>
                     <td>
+                        @if (item.MaterialDTO == null)
+                        {
+                            <a asp-controller="Topic" asp-action="UploadMaterial" asp-route-id="@item.Id">
+                                Upload Material |
+                            </a> 
+                        }
                         <a asp-controller="Topic" asp-action="Edit" asp-route-id="@item.Id">
                             Edit
                         </a> |

@@ -17,8 +17,13 @@ namespace BussinessObject.DTOs
         public string? Description { get; set; }
         public string? StudentTask { get; set; }
         public int CourseId { get; set; }
+        public int MeterialId { get; set; }
+
         public bool IsActive { get; set; }
         public bool IsDelete { get; set; } = false;
+
+        public MaterialDTO? MaterialDTO { get; set; }
+
     }
 }
 

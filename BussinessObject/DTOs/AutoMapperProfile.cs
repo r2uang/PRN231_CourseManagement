@@ -16,6 +16,10 @@ namespace BusinessObjects.DTOs
             CreateMap<CourseDTO, Course>();
             CreateMap<Topics,TopicDTO>();
             CreateMap<TopicDTO,Topics>();
+            CreateMap<Meterial, MaterialDTO>()
+                .ForMember(dest => dest.id, act => act.MapFrom(src => src.Id))
+                .ForMember(dest => dest.Name, act => act.MapFrom(src => src.FileName))
+                .ReverseMap();
         }
     }
 }

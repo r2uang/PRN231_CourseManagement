@@ -57,6 +57,12 @@ namespace DataAccess
                 using (var context = new MyDbContext())
                 {
                     topic = context.Topics.SingleOrDefault(x => x.Id == id);
+                    int masterialId = topic.MeterialId.Value;
+                    if (masterialId != null || masterialId != 0)
+                    {
+                        var masterial = context.Meterials.FirstOrDefault(m => m.Id == masterialId);
+                        topic.Meterial = masterial;
+                    }
                 }
             }
             catch (Exception ex)
@@ -100,12 +106,11 @@ namespace DataAccess
             }
         }
 
-        public async static Task addMeterial(IFormFile fileData,int countId)
+        public async static Task addMeterial(IFormFile fileData,int topicId)
         {
-            string path = "";
             try
             {
-                path = Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, "Meterials"));
+                string path = Path.GetFullPath(Path.Combine(Environment.CurrentDirectory, "Masterials"));
                 if (!Directory.Exists(path))
                 {
                     Directory.CreateDirectory(path);
@@ -117,15 +122,17 @@ namespace DataAccess
 
                 var fileMeterial = new Meterial()
                 {
-                    Id = 0,
                     FileName = fileData.FileName,
                     FileRoot = path,
-                    CourseId = countId,
                 };
                 using (var context = new MyDbContext())
                 {
                     var result = context.Meterials.Add(fileMeterial);
                     await context.SaveChangesAsync();
+                    var topic = context.Topics.First(c=> c.Id == topicId);
+                    topic.MeterialId = fileMeterial.Id;
+                    context.Topics.Update(topic);
+                    await context.SaveChangesAsync();   
                 }
             }
             catch (Exception ex)

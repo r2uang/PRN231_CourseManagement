@@ -30,19 +30,12 @@ namespace BussinessObject.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FileName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    FileRoot = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CourseId = table.Column<int>(type: "int", nullable: false)
+                    FileName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FileRoot = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Meterials", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Meterials_Course_CourseId",
-                        column: x => x.CourseId,
-                        principalTable: "Course",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -69,36 +62,21 @@ namespace BussinessObject.Migrations
                         principalTable: "Course",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Topics_Meterials_MeterialId",
-                        column: x => x.MeterialId,
-                        principalTable: "Meterials",
-                        principalColumn: "Id");
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Meterials_CourseId",
-                table: "Meterials",
-                column: "CourseId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Topics_CourseId",
                 table: "Topics",
                 column: "CourseId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Topics_MeterialId",
-                table: "Topics",
-                column: "MeterialId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Topics");
+                name: "Meterials");
 
             migrationBuilder.DropTable(
-                name: "Meterials");
+                name: "Topics");
 
             migrationBuilder.DropTable(
                 name: "Course");

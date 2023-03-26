@@ -40,6 +40,15 @@ namespace DataAccess
                     course = context.Course
                         .Include(topic => topic.Topics)
                         .Where(o => o.Id == id).FirstOrDefault();
+                    foreach(var topic in course.Topics)
+                    {
+                        int masterialId = topic.MeterialId.Value;
+                        if (masterialId != null || masterialId != 0)
+                        {
+                            var masterial = context.Meterials.FirstOrDefault(m => m.Id == masterialId);
+                            topic.Meterial = masterial;
+                        }
+                    }
                 }
             }
             catch (Exception ex)
