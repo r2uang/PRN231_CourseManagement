@@ -100,7 +100,7 @@ namespace DataAccess
             }
         }
 
-        public async static Task addMeterial(IFormFile fileData)
+        public async static Task addMeterial(IFormFile fileData,int countId)
         {
             string path = "";
             try
@@ -120,6 +120,7 @@ namespace DataAccess
                     Id = 0,
                     FileName = fileData.FileName,
                     FileRoot = path,
+                    CourseId = countId,
                 };
                 using (var context = new MyDbContext())
                 {

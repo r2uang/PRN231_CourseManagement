@@ -1,4 +1,5 @@
-﻿using BussinessObject.Models;
+﻿using BussinessObject.DTOs;
+using BussinessObject.Models;
 using DataAccess;
 using Microsoft.AspNetCore.Http;
 using System;
@@ -23,10 +24,10 @@ namespace Repositories
         public Topics getTopic(int id) => TopicDAO.getTopicById(id);
 
         public List<Topics> getTopicsByCourseId(int id) => TopicDAO.getTopicsByCourseId(id);
-
+         
         public void updateTopic(Topics topic) => TopicDAO.updateTopic(topic);
 
-        public Task addMeterial(IFormFile fileData) => TopicDAO.addMeterial(fileData);
+        public Task addMeterial(IFormFile fileData,int id) => TopicDAO.addMeterial(fileData, id);
         public Task dowloadMeterial(int id) => TopicDAO.dowloadMeterial(id);
     }
 }

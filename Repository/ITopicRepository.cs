@@ -1,4 +1,5 @@
-﻿using BussinessObject.Models;
+﻿using BussinessObject.DTOs;
+using BussinessObject.Models;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace Repositories
         void updateTopic(Topics topic);
         Topics getTopic(int id);
         List<Topics> getTopicsByCourseId(int id);
-        Task addMeterial(IFormFile fileData);
+        Task addMeterial(IFormFile fileData,int id);
         Task dowloadMeterial(int id);
 
     }

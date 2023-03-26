@@ -18,7 +18,7 @@ namespace BussinessObject.DTOs
         public string? StudentTask { get; set; }
         public int CourseId { get; set; }
         public bool IsActive { get; set; }
-        public bool IsDelete { get; set; }
+        public bool IsDelete { get; set; } = false;
     }
 }
 

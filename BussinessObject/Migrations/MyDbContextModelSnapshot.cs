@@ -17,7 +17,7 @@ namespace BussinessObject.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.14")
+                .HasAnnotation("ProductVersion", "6.0.13")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -57,6 +57,9 @@ namespace BussinessObject.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<int>("CourseId")
+                        .HasColumnType("int");
+
                     b.Property<string>("FileName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -65,6 +68,8 @@ namespace BussinessObject.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CourseId");
 
                     b.ToTable("Meterials");
                 });
@@ -107,11 +112,20 @@ namespace BussinessObject.Migrations
 
                     b.HasIndex("CourseId");
 
-                    b.HasIndex("MeterialId")
-                        .IsUnique()
-                        .HasFilter("[MeterialId] IS NOT NULL");
+                    b.HasIndex("MeterialId");
 
                     b.ToTable("Topics");
+                });
+
+            modelBuilder.Entity("BussinessObject.Models.Meterial", b =>
+                {
+                    b.HasOne("BussinessObject.Models.Course", "Course")
+                        .WithMany()
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Course");
                 });
 
             modelBuilder.Entity("BussinessObject.Models.Topics", b =>
@@ -123,8 +137,8 @@ namespace BussinessObject.Migrations
                         .IsRequired();
 
                     b.HasOne("BussinessObject.Models.Meterial", "Meterial")
-                        .WithOne("Topics")
-                        .HasForeignKey("BussinessObject.Models.Topics", "MeterialId");
+                        .WithMany()
+                        .HasForeignKey("MeterialId");
 
                     b.Navigation("Course");
 
@@ -134,12 +148,6 @@ namespace BussinessObject.Migrations
             modelBuilder.Entity("BussinessObject.Models.Course", b =>
                 {
                     b.Navigation("Topics");
-                });
-
-            modelBuilder.Entity("BussinessObject.Models.Meterial", b =>
-                {
-                    b.Navigation("Topics")
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

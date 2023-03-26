@@ -1,8 +1,10 @@
-﻿using CourseManagementWebClientWebClient.Models;
+﻿using BussinessObject.DTOs;
+using CourseManagementWebClientWebClient.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Net.Http.Headers;
 using System.Text.Json;
 
 namespace CourseManagementWebClientWebClient.Controllers
@@ -12,11 +14,17 @@ namespace CourseManagementWebClientWebClient.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly UserManager<AppUser> _userManager;
+        private readonly HttpClient client = null;
+        private string CourseApiUrl = "";
 
         public HomeController(ILogger<HomeController> logger, UserManager<AppUser> userManager)
         {
             _logger = logger;
             _userManager = userManager;
+            client = new HttpClient();
+            var contentType = new MediaTypeWithQualityHeaderValue("application/json");
+            client.DefaultRequestHeaders.Accept.Add(contentType);
+            CourseApiUrl = "https://localhost:7167/api/courses";
         }
 
         public async Task<IActionResult> Index()

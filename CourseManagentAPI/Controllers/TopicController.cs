@@ -72,8 +72,8 @@ namespace CourseManagmentAPI.Controllers
             return Ok("Delete Successfully");
         }
 
-        [HttpPost("upload-meterial")]
-        public async Task<ActionResult> PostSingleFile(IFormFile fileData)
+        [HttpPost("upload-meterial/{topicId}")]
+        public async Task<ActionResult> PostSingleFile(IFormFile fileData,int topicId)
         {
             if (fileData == null)
             {
@@ -81,7 +81,7 @@ namespace CourseManagmentAPI.Controllers
             }
             try
             {
-                await repository.addMeterial(fileData);
+                await repository.addMeterial(fileData, topicId);
                 return Ok();
             }
             catch (Exception)

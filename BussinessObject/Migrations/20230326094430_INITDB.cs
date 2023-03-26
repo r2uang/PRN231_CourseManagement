@@ -4,7 +4,7 @@
 
 namespace BussinessObject.Migrations
 {
-    public partial class InitialDB : Migration
+    public partial class INITDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -31,32 +31,18 @@ namespace BussinessObject.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FileName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    FileRoot = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    FileRoot = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CourseId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Meterials", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "User",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Gmail = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DateOfBirth = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Code = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Gender = table.Column<bool>(type: "bit", nullable: false),
-                    Role = table.Column<int>(type: "int", nullable: false),
-                    IsActive = table.Column<bool>(type: "bit", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_User", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Meterials_Course_CourseId",
+                        column: x => x.CourseId,
+                        principalTable: "Course",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -91,6 +77,11 @@ namespace BussinessObject.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Meterials_CourseId",
+                table: "Meterials",
+                column: "CourseId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Topics_CourseId",
                 table: "Topics",
                 column: "CourseId");
@@ -98,9 +89,7 @@ namespace BussinessObject.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Topics_MeterialId",
                 table: "Topics",
-                column: "MeterialId",
-                unique: true,
-                filter: "[MeterialId] IS NOT NULL");
+                column: "MeterialId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -109,13 +98,10 @@ namespace BussinessObject.Migrations
                 name: "Topics");
 
             migrationBuilder.DropTable(
-                name: "User");
+                name: "Meterials");
 
             migrationBuilder.DropTable(
                 name: "Course");
-
-            migrationBuilder.DropTable(
-                name: "Meterials");
         }
     }
 }

@@ -26,7 +26,6 @@ namespace BussinessObject.Models
         [Required]
         public int CourseId { get; set; }
         public virtual Course Course { get; set; }
-        public int? MeterialId { get; set; }
         public virtual Meterial? Meterial { get; set; }
     }
 }
