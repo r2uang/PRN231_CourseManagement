@@ -1,8 +1,10 @@
 ﻿using BussinessObject.DTOs;
+using CourseManagementWebClient.DataHelper;
 using CourseManagementWebClientWebClient.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System.Diagnostics;
 using System.Net.Http.Headers;
 using System.Text.Json;
@@ -29,13 +31,13 @@ namespace CourseManagementWebClientWebClient.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var userBytes = HttpContext.Session.Get("User");
-            if(userBytes == null)
+            var user = HttpContext.Session.GetObjectFromJson<AppUser>("User");
+            if(user == null)
             {
                 return View();
             }
-            var user = JsonSerializer.Deserialize<AppUser>(userBytes);
             List<String> roles = await GetUserRoles(user);
+            HttpContext.Session.SetObjectAsJson("UserRoles", roles);
             return View(roles);
         }
         private async Task<List<string>> GetUserRoles(AppUser user)

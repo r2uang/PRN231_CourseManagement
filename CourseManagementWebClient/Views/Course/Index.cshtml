@@ -1,7 +1,9 @@
-﻿@model IEnumerable<BussinessObject.DTOs.CourseDTO>
+﻿@using CourseManagementWebClientWebClient.Data;
+@model IEnumerable<BussinessObject.DTOs.CourseDTO>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    List<String> roles = (List<String>)ViewData["UserRoles"];
 }
 
 <h1>Courses</h1>
@@ -45,15 +47,23 @@
                     @Html.DisplayFor(modelItem => item.IsActive)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">
-                        Edit
-                    </a> |
+                    @if (roles != null && (roles.Contains(Role.SUPERADMIN.ToString())
+                   || roles.Contains(Role.TEACHER.ToString())))
+                    {
+                        <a asp-action="Edit" asp-route-id="@item.Id">
+                            Edit |
+                        </a>
+                    }
                     <a asp-action="Details" asp-route-id="@item.Id">
                         Details
-                    </a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">
-                        Delete
                     </a>
+                    @if (roles != null && (roles.Contains(Role.SUPERADMIN.ToString())
+                   || roles.Contains(Role.TEACHER.ToString())))
+                    {
+                        <a asp-action="Delete" asp-route-id="@item.Id">
+                            | Delete
+                        </a>
+                    }
                 </td>
             </tr>
         }
