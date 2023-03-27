@@ -1,4 +1,5 @@
 ﻿using BussinessObject.DTOs;
+using CourseManagementWebClient.DataHelper;
 using CourseManagementWebClientWebClient.Controllers;
 using CourseManagementWebClientWebClient.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -31,11 +32,15 @@ namespace CourseManagementWebClient.Controllers
             {
                 PropertyNameCaseInsensitive = true
             };
+            List<String> userRoles = HttpContext.Session.GetObjectFromJson<List<String>>("UserRoles");
+            ViewData["UserRoles"] = userRoles;
+
             if (courses == null)
             {
                 return Content("NOTHING TO SHOW");
 
             }
+
             return View(courses.Where(c => c.IsActive).ToList());
         }
 
@@ -91,6 +96,8 @@ namespace CourseManagementWebClient.Controllers
             {
                 return NotFound();
             }
+            List<String> userRoles = HttpContext.Session.GetObjectFromJson<List<String>>("UserRoles");
+            ViewData["UserRoles"] = userRoles;
             return View(product);
         }
 

@@ -17,6 +17,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using System.Net.Mail;
 using System.Text.Json;
+using CourseManagementWebClient.DataHelper;
 
 namespace CourseManagementWebClientWebClient.Areas.Identity.Pages.Account
 {
@@ -137,7 +138,8 @@ namespace CourseManagementWebClientWebClient.Areas.Identity.Pages.Account
                 {
                     var user = await _userManager.FindByEmailAsync(Input.Email);
                     _logger.LogInformation("User logged in.");
-                    HttpContext.Session.Set("User", JsonSerializer.SerializeToUtf8Bytes(user));
+                    //HttpContext.Session.Set("User", JsonSerializer.SerializeToUtf8Bytes(user));
+                    HttpContext.Session.SetObjectAsJson("User", user);
                     return LocalRedirect(returnUrl);
                 }
                 if (result.RequiresTwoFactor)
