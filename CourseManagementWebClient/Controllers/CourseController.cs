@@ -32,8 +32,16 @@ namespace CourseManagementWebClient.Controllers
             {
                 PropertyNameCaseInsensitive = true
             };
+<<<<<<< HEAD
             List<String> userRoles = HttpContext.Session.GetObjectFromJson<List<String>>("UserRoles");
             ViewData["UserRoles"] = userRoles;
+=======
+            if (courses == null)
+            {
+                return Content("NOTHING TO SHOW");
+
+            }
+>>>>>>> 14532f93d74f01cf4efefcbbb2229680faa1e4aa
             return View(courses.Where(c => c.IsActive).ToList());
         }
 

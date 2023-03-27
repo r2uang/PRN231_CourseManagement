@@ -1,4 +1,5 @@
 ﻿using BussinessObject.DTOs;
+using BussinessObject.Models;
 using CourseManagementWebClientWebClient.Controllers;
 using CourseManagementWebClientWebClient.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -101,13 +102,13 @@ namespace CourseManagementWebClient.Controllers
         [Authorize(Roles = "TEACHER")]
         public async Task<IActionResult> Delete(int? id)
         {
-            var product = await GetTopicById(id);
-            if (product == null)
+            var topic = await GetTopicById(id);
+            if (topic == null)
             {
                 return NotFound();
             }
             await client.DeleteAsync(TopicApiUrl + "/id?id=" + id);
-            return Redirect("/Course/Index");
+            return Redirect("/Course/Details/" + topic.CourseId);
         }
 
         [Authorize(Roles = "TEACHER")]
@@ -123,7 +124,7 @@ namespace CourseManagementWebClient.Controllers
         {
             // Create a new FormData instance and add the file to it
             MultipartFormDataContent formData = new MultipartFormDataContent();
-
+            var topic = await GetTopicById(id);
             //Dang loi o day
             StreamContent fileContent = new StreamContent(file.OpenReadStream());
             formData.Add(fileContent, "file", file.FileName);
@@ -151,18 +152,28 @@ namespace CourseManagementWebClient.Controllers
                 ViewData["Message"] = "An error occurred: " + ex.Message;
             }
             // Return the view with the message
-            return Redirect("/Course/Index");
+            return Redirect("/Course/Details/" + topic.CourseId);
         }
 
-        //[Authorize(Roles = "TEACHER")]
-        //[HttpGet]
-        //public async Task<IActionResult> DowloadMaterial(int id)
-        //{
-        //    if(id == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    await client.GetAsync(TopicApiUrl + "/dowload-material/" + id);
-        //}
+        [Authorize(Roles = "TEACHER")]
+        [HttpGet("Topic/Dowload/{id}")]
+        public async Task<IActionResult> DowloadMaterial(int id)
+        {
+            var apiUrl = TopicApiUrl + "/dowload-meterial/" + id;
+            var topic = await GetTopicById(id);
+            using (var client = new HttpClient())
+            {
+                var response = await client.GetAsync(apiUrl);
+                if (response.IsSuccessStatusCode)
+                {
+                    var fileBytes = await response.Content.ReadAsByteArrayAsync();
+                    return File(fileBytes, "application/octet-stream", topic.MaterialDTO.Name);
+                }
+                else
+                {
+                    return Content("Error downloading file.");
+                }
+            }
+        }
     }
 }

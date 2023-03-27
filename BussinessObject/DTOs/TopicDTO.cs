@@ -21,7 +21,6 @@ namespace BussinessObject.DTOs
 
         public bool IsActive { get; set; }
         public bool IsDelete { get; set; } = false;
-
         public MaterialDTO? MaterialDTO { get; set; }
 
     }
