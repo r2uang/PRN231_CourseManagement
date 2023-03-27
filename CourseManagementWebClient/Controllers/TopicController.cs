@@ -155,7 +155,7 @@ namespace CourseManagementWebClient.Controllers
             return Redirect("/Course/Details/" + topic.CourseId);
         }
 
-        [Authorize(Roles = "TEACHER")]
+        [Authorize(Roles = "TEACHER,STUDENT")]
         [HttpGet("Topic/Dowload/{id}")]
         public async Task<IActionResult> DowloadMaterial(int id)
         {
