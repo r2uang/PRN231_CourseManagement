@@ -31,6 +31,11 @@ namespace CourseManagementWebClient.Controllers
             {
                 PropertyNameCaseInsensitive = true
             };
+            if (courses == null)
+            {
+                return Content("NOTHING TO SHOW");
+
+            }
             return View(courses.Where(c => c.IsActive).ToList());
         }
 
