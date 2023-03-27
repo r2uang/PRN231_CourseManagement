@@ -124,7 +124,7 @@ namespace CourseManagementWebClient.Controllers
         {
             // Create a new FormData instance and add the file to it
             MultipartFormDataContent formData = new MultipartFormDataContent();
-
+            var topic = await GetTopicById(id);
             //Dang loi o day
             StreamContent fileContent = new StreamContent(file.OpenReadStream());
             formData.Add(fileContent, "file", file.FileName);
