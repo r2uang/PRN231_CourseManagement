@@ -85,7 +85,7 @@
                         @Html.DisplayFor(modelItem => item.StudentTask)
                     </td>
                     <td>
-                        @if (item.MaterialDTO.Name == null)
+                        @if (item.MaterialDTO == null)
                         {
                             <a asp-controller="Topic" asp-action="UploadMaterial" asp-route-id="@item.Id">
                                 Upload Material |
@@ -100,6 +100,12 @@
                         <a asp-action="Delete" asp-route-id="@item.Id">
                             Delete
                         </a>
+                        @if (item.MaterialDTO != null)
+                        {
+                            <a asp-controller="Topic" asp-action="Dowload" asp-route-id="@item.Id">
+                                Dowload Material
+                            </a>
+                        }
                     </td>
                 </tr>
             }

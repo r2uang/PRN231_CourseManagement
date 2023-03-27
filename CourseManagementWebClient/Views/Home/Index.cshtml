@@ -12,4 +12,9 @@
         <a class="nav-link text-dark" asp-area="" asp-controller="UserRole" asp-action="Index">UsersManager</a>
         <a class="nav-link text-dark" asp-area="" asp-controller="Role" asp-action="Index">RolesManager</a>
     }
+    @if (Model != null &&( Model.Contains(Role.TEACHER.ToString()) || 
+    Model.Contains(Role.STUDENT.ToString())))
+    {
+        <a class="nav-link text-dark" asp-area="" asp-controller="Course" asp-action="Index">All Course</a>
+    }
 </div>

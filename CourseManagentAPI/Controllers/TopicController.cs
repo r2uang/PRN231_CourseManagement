@@ -95,7 +95,7 @@ namespace CourseManagmentAPI.Controllers
             }
         }
 
-        [HttpGet("dowload-meterial")]
+        [HttpGet("/dowload-meterial/{id}")]
         public async Task<ActionResult> DownloadFile(int id)
         {
             Meterial meterial = new Meterial();

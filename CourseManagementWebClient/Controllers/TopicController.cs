@@ -1,9 +1,11 @@
 ﻿using BussinessObject.DTOs;
 using CourseManagementWebClientWebClient.Controllers;
 using CourseManagementWebClientWebClient.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.IO;
+using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text.Json;
 
@@ -24,11 +26,13 @@ namespace CourseManagementWebClient.Controllers
             TopicApiUrl = "https://localhost:7167/api/topics";
         }
 
+        [Authorize(Roles = "TEACHER")]
         public IActionResult Create(int id)
         {
             return View();
         }
 
+        [Authorize(Roles = "TEACHER")]
         [HttpPost]
         public async Task<IActionResult> Create([FromForm] TopicDTO topicDTO, int id)
         {
@@ -42,6 +46,8 @@ namespace CourseManagementWebClient.Controllers
             }
             return Redirect("/Course/Details/" + id);
         }
+
+        [Authorize(Roles = "TEACHER")]
         [HttpGet("Topic/Edit/{id}")]
         public async Task<IActionResult> Edit(int? id)
         {
@@ -52,6 +58,8 @@ namespace CourseManagementWebClient.Controllers
             }
             return View(topic);
         }
+
+        [Authorize(Roles = "TEACHER")]
         [HttpPost]
         public async Task<IActionResult> Edit([FromForm] TopicDTO topicDTO, int id)
         {
@@ -64,6 +72,8 @@ namespace CourseManagementWebClient.Controllers
             HttpResponseMessage response = await client.PutAsJsonAsync(TopicApiUrl, topicDTO);
             return Redirect("/Course/Details/" + topicDTO.CourseId);
         }
+
+        [Authorize(Roles = "TEACHER,STUDENT")]
         public async Task<IActionResult> Details(int id)
         {
             var topic = await GetTopicById(id);
@@ -80,7 +90,7 @@ namespace CourseManagementWebClient.Controllers
             {
                 return null;
             }
-            HttpResponseMessage response = await client.GetAsync(TopicApiUrl + "/" +id + "/topic");
+            HttpResponseMessage response = await client.GetAsync(TopicApiUrl + "/" + id + "/topic");
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 return response.Content.ReadFromJsonAsync<TopicDTO>().Result;
@@ -88,6 +98,7 @@ namespace CourseManagementWebClient.Controllers
             return null;
         }
 
+        [Authorize(Roles = "TEACHER")]
         public async Task<IActionResult> Delete(int? id)
         {
             var product = await GetTopicById(id);
@@ -99,11 +110,14 @@ namespace CourseManagementWebClient.Controllers
             return Redirect("/Course/Index");
         }
 
+        [Authorize(Roles = "TEACHER")]
         [HttpGet]
         public IActionResult UploadMaterial(int id)
         {
             return View(id);
         }
+
+        [Authorize(Roles = "TEACHER")]
         [HttpPost]
         public async Task<IActionResult> UploadMaterial(IFormFile file, int id)
         {
@@ -126,7 +140,7 @@ namespace CourseManagementWebClient.Controllers
                     ViewData["Message"] = "File uploaded successfully";
                 }
                 else
-                    {
+                {
                     // File upload failed
                     ViewData["Message"] = "File upload failed";
                 }
@@ -139,5 +153,16 @@ namespace CourseManagementWebClient.Controllers
             // Return the view with the message
             return Redirect("/Course/Index");
         }
+
+        //[Authorize(Roles = "TEACHER")]
+        //[HttpGet]
+        //public async Task<IActionResult> DowloadMaterial(int id)
+        //{
+        //    if(id == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    await client.GetAsync(TopicApiUrl + "/dowload-material/" + id);
+        //}
     }
 }

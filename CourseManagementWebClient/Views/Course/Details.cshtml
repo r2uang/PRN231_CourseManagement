@@ -93,7 +93,13 @@
                         </a> |
                         <a asp-action="Delete" asp-route-id="@item.Id">
                             Delete
-                        </a>
+                        </a> |
+                        @if (item.MaterialDTO != null)
+                        {
+                            <a asp-controller="Topic" asp-action="Dowload" asp-route-id="@item.Id">
+                                Dowload Material
+                            </a>
+                        }
                     </td>
                 </tr>
             }

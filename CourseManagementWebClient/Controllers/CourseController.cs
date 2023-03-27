@@ -34,6 +34,7 @@ namespace CourseManagementWebClient.Controllers
             return View(courses.Where(c => c.IsActive).ToList());
         }
 
+        [Authorize(Roles = "TEACHER")]
         public IActionResult Create()
         {
             return View();
